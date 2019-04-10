@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-image">
+    <ion-img src="/assets/siemens.png"></ion-img>   
+    </ion-card>
+<ion-card class="esco ">
+    <ion-img cache="true" src="/assets/esco2Logo.png" ></ion-img>
+</ion-card>
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-subtitle>Apex Software</ion-card-subtitle>
+        <ion-card-title>Siemens Co-Gen Power Plant Project</ion-card-title>        
+      </ion-card-header>
+      <ion-card-content>
+        <p>The system requirement is to evaluate the data from Siemens Co-Gen power plant and create meaningful results about the patterns in the data.</p>
+      </ion-card-content>
+    </ion-card>    
+      <ion-card>
+        <ion-card-header>
+        <ion-card-title>Siemens Canada</ion-card-title>
+      </ion-card-header>
+        <ion-card-content>Siemens Canada is a supplier of steam and gas turbines used for power generation. 
+            Siemens has facilities across Canada including the co-generation power plant at Algonquin College. 
+            This is part of the collaboration between Siemens and the College. This plant uses natural gas 
+            to generate enough power to cover the baseline power requirements at the Woodroffe campus.</ion-card-content>
+          </ion-card>
+
+        <ion-card>
+        <ion-card-header>
+        <ion-card-title>Algonquin College</ion-card-title>
+        </ion-card-header>
+
+        
+        <ion-card-content>The collaboration between Siemens and Algonquin creates opportunities for students to gain hands-on 
+          learning in the energy field and the data gathered from the plant can be used for analysis.
+          The Siemens Co-Gen Power Plant functions to power Algonquin College and produces a large 
+          amount of data about the generated electricity and carbon dioxide. </ion-card-content>
+        </ion-card>
+
+      <ion-list lines="none">
+      <ion-item [routerLink]="[ '/signup']" >
+        <ion-icon slot="start" color="medium" name="checkmark-circle"></ion-icon>
+        <ion-label>Sign Up</ion-label>
+      </ion-item>      
+      <ion-item [routerLink]="[ '/login']" >
+        <ion-icon slot="start" color="medium" name="log-in"></ion-icon>
+        <ion-label>Log In</ion-label>
+      </ion-item>      
+    </ion-list>
+</ion-content>

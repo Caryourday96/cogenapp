@@ -1,0 +1,8 @@
+{
+  "name": "cogenapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "096fa708"
+}
