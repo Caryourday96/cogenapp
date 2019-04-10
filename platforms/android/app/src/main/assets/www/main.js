@@ -901,12 +901,10 @@ var map = {
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
-		"common",
 		"login-login-module"
 	],
 	"./signup/signup.module": [
 		"./src/app/signup/signup.module.ts",
-		"common",
 		"signup-signup-module"
 	]
 };
@@ -945,6 +943,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
+
 
 
 
@@ -972,26 +972,32 @@ var routes = [
     {
         path: 'co2-daily',
         loadChildren: './co2-daily/co2-daily.module#Co2DailyPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'co2-weekly',
         loadChildren: './co2-weekly/co2-weekly.module#Co2WeeklyPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'co2-monthly',
         loadChildren: './co2-monthly/co2-monthly.module#Co2MonthlyPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'e-daily',
         loadChildren: './e-daily/e-daily.module#EDailyPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'e-weekly',
         loadChildren: './e-weekly/e-weekly.module#EWeeklyPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'e-monthly',
         loadChildren: './e-monthly/e-monthly.module#EMonthlyPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'electricity',
@@ -1006,12 +1012,9 @@ var routes = [
         loadChildren: './signup/signup.module#SignupPageModule'
     },
     {
-        path: 'e-monthly',
-        loadChildren: './e-monthly/e-monthly.module#EMonthlyPageModule',
-    },
-    {
         path: 'chart3d',
         loadChildren: './chart3d/chart3d.module#Chart3dPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -1191,6 +1194,155 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/guards/auth.guard.ts":
+/*!**************************************!*\
+  !*** ./src/app/guards/auth.guard.ts ***!
+  \**************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(auth, router, ngZone) {
+        this.auth = auth;
+        this.router = router;
+        this.ngZone = ngZone;
+    }
+    AuthGuard.prototype.canActivate = function (route, state) {
+        var authenticated = this.auth.authState();
+        if (authenticated) {
+            return true;
+        }
+        else {
+            // this.ngZone.run(() => {
+            //   this.router.navigateByUrl('/auth/signup');
+            // });
+            return false;
+        }
+    };
+    AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+    ], AuthGuard);
+    return AuthGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/authentication.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/services/authentication.service.ts ***!
+  \****************************************************/
+/*! exports provided: AuthenticationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationService", function() { return AuthenticationService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
+
+
+
+
+
+
+var AuthenticationService = /** @class */ (function () {
+    function AuthenticationService(firebaseService, afAuth, router, db, ngZone) {
+        this.firebaseService = firebaseService;
+        this.afAuth = afAuth;
+        this.router = router;
+        this.db = db;
+        this.ngZone = ngZone;
+    }
+    AuthenticationService.prototype.registerUser = function (value) {
+        return new Promise(function (resolve, reject) {
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().createUserWithEmailAndPassword(value.email, value.password)
+                .then(function (res) { return resolve(res); }, function (err) { return reject(err); });
+        });
+    };
+    AuthenticationService.prototype.loginUser = function (value) {
+        return new Promise(function (resolve, reject) {
+            firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().signInWithEmailAndPassword(value.email, value.password)
+                .then(function (res) { return resolve(res); }, function (err) { return reject(err); });
+        });
+    };
+    AuthenticationService.prototype.logoutUser = function () {
+        return new Promise(function (resolve, reject) {
+            if (firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser) {
+                firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().signOut()
+                    .then(function () {
+                    console.log("Log out");
+                    resolve();
+                }).catch(function (error) {
+                    reject();
+                });
+            }
+        });
+    };
+    AuthenticationService.prototype.userDetails = function () {
+        return firebase_app__WEBPACK_IMPORTED_MODULE_2__["auth"]().currentUser;
+    };
+    // returns an observer promise to check if user is authenticated or not.
+    // used in the auth guard to prevent navigation to certain pages
+    AuthenticationService.prototype.authState = function () {
+        var _this = this;
+        // return new promise
+        return new Promise(function (resolve, reject) {
+            // check auth state
+            _this.afAuth.auth.onAuthStateChanged(function (user) {
+                // if user is authenticated, resolve promise to true
+                if (user) {
+                    resolve(true);
+                }
+                else {
+                    _this.ngZone.run(function () {
+                        _this.router.navigate(['/login']);
+                    });
+                    // redirect user to signup page if not authenticated
+                    resolve(false);
+                }
+            });
+        });
+    };
+    AuthenticationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [AuthenticationService,
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+    ], AuthenticationService);
+    return AuthenticationService;
 }());
 
 

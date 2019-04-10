@@ -29,32 +29,32 @@ const routes: Routes = [
   { 
     path: 'co2-daily', 
     loadChildren: './co2-daily/co2-daily.module#Co2DailyPageModule',
-    //canActivate: [AuthGuard] 
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'co2-weekly', 
     loadChildren: './co2-weekly/co2-weekly.module#Co2WeeklyPageModule',
-   // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { 
     path: 'co2-monthly',
     loadChildren: './co2-monthly/co2-monthly.module#Co2MonthlyPageModule',
-    //canActivate: [AuthGuard] 
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'e-daily',
     loadChildren: './e-daily/e-daily.module#EDailyPageModule',
-   // canActivate: [AuthGuard] 
+    canActivate: [AuthGuard] 
   },
   { 
     path: 'e-weekly',
     loadChildren: './e-weekly/e-weekly.module#EWeeklyPageModule' ,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { 
     path: 'e-monthly',
     loadChildren: './e-monthly/e-monthly.module#EMonthlyPageModule' ,
-   // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { 
     path: 'electricity',
@@ -68,11 +68,7 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: './signup/signup.module#SignupPageModule'
   },
-  { 
-    path: 'e-monthly',
-    loadChildren: './e-monthly/e-monthly.module#EMonthlyPageModule' ,
-    //canActivate: [AuthGuard]
-  },
+ 
 { 
   path: 'chart3d',
   loadChildren: './chart3d/chart3d.module#Chart3dPageModule',
