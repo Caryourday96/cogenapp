@@ -59,7 +59,7 @@ var SignupPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Register</ion-title>\n  </ion-toolbar>\n</ion-header>\n \n<ion-content padding>\n  <form class=\"form\" [formGroup]=\"validations_form\"  (ngSubmit)=\"tryRegister(validations_form.value)\">\n \n    <ion-item>\n      <ion-label  position=\"floating\" color=\"primary\">Email</ion-label>\n      <ion-input type=\"text\" formControlName=\"email\"></ion-input>\n    </ion-item>\n    <div class=\"validation-errors\">\n      <ng-container *ngFor=\"let validation of validation_messages.email\">\n        <div class=\"error-message\" *ngIf=\"validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)\">\n          {{ validation.message }}\n        </div>\n      </ng-container>\n    </div>\n \n    <ion-item>\n      <ion-label  position=\"floating\" color=\"primary\">Password</ion-label>\n      <ion-input type=\"password\" formControlName=\"password\" class=\"form-controll\" required></ion-input>\n    </ion-item>\n    <div class=\"validation-errors\">\n      <ng-container *ngFor=\"let validation of validation_messages.password\">\n        <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n          {{ validation.message }}\n        </div>\n      </ng-container>\n    </div>\n \n    \n    <ion-button  class=\"submit-btn\" type=\"submit\"  [disabled]=\"!validations_form.valid\">Register</ion-button>\n    <label class=\"error-message\">{{errorMessage}}</label>\n    <label class=\"success-message\">{{successMessage}}</label>\n  </form>\n  <p class=\"go-to-login\">Already have an account? <a (click)=\"goLoginPage()\">Try to Log In.</a></p>\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Register</ion-title>\n  </ion-toolbar>\n</ion-header>\n \n<ion-content padding>\n  <form class=\"form\" [formGroup]=\"validations_form\"  (ngSubmit)=\"tryRegister(validations_form.value)\">\n \n    <ion-item>\n      <ion-label  position=\"floating\" color=\"primary\">Email</ion-label>\n      <ion-input type=\"text\" formControlName=\"email\"></ion-input>\n    </ion-item>\n    <div class=\"validation-errors\">\n      <ng-container *ngFor=\"let validation of validation_messages.email\">\n        <div class=\"error-message\" *ngIf=\"validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)\">\n          {{ validation.message }}\n        </div>\n      </ng-container>\n    </div>\n \n    <ion-item>\n      <ion-label  position=\"floating\" color=\"primary\">Password</ion-label>\n      <ion-input type=\"password\" formControlName=\"password\" class=\"form-controll\" required></ion-input>\n    </ion-item>\n    <div class=\"validation-errors\">\n      <ng-container *ngFor=\"let validation of validation_messages.password\">\n        <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n          {{ validation.message }}\n        </div>\n      </ng-container>\n    </div>\n \n    \n    <ion-button  class=\"submit-btn\" type=\"submit\"  [disabled]=\"!validations_form.valid\">Register</ion-button>\n    <label class=\"error-message\">{{errorMessage}}</label>\n    <label class=\"success-message\">{{successMessage}}</label>\n  </form>\n  <p class=\"go-to-login\">Already have an account? <a [routerLink]=\"[ '/login']\">Try to Log In.</a></p>\n</ion-content>"
 
 /***/ }),
 
@@ -108,7 +108,7 @@ var SignupPage = /** @class */ (function () {
             ],
             'password': [
                 { type: 'required', message: 'Password is required.' },
-                { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+                { type: 'minlength', message: 'Password must be at least 6 characters long.' }
             ]
         };
     }
@@ -136,9 +136,6 @@ var SignupPage = /** @class */ (function () {
             _this.errorMessage = err.message;
             _this.successMessage = "";
         });
-    };
-    SignupPage.prototype.goLoginPage = function () {
-        this.navCtrl.navigateBack('');
     };
     SignupPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

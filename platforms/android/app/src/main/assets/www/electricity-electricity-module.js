@@ -58,7 +58,7 @@ var ElectricityPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>electricity</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n<p>\n  <button ion-button large block>Electricity Daily </button>\n</p>\n<p>\n  <button ion-button large full>Electricity Weekly</button>\n</p>\n<p>\n  <button ion-button large full>Electricity Monthly</button>\n</p>\n\n\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>List of Electricity levels </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n<p>\n  <button ion-button large block [routerLink]=\"[ '/e-daily']\" >Electricity Daily </button>\n</p>\n<p>\n  <button ion-button large full [routerLink]=\"[ '/e-weekly']\">Electricity Weekly</button>\n</p>\n<p>\n  <button ion-button large full [routerLink]=\"[ '/e-monthly']\">Electricity Monthly</button>\n</p>\n\n\n</ion-content>\n"
 
 /***/ }),
 

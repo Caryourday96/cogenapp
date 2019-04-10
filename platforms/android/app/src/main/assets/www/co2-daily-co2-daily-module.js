@@ -58,7 +58,7 @@ var Co2DailyPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Carbon Daily</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <canvas #barCanvas></canvas>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Carbon Daily</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <canvas #barCanvas></canvas>\n\n  <ion-card>\n  <ion-card-header>\n  <p><ion-card-subtitle>Min Value -  5 </ion-card-subtitle></p>\n  <p><ion-card-subtitle>Max Value -  95 </ion-card-subtitle></p>\n  <p><ion-card-subtitle>Average Value - 39.2  </ion-card-subtitle></p>\n</ion-card-header>\n  </ion-card>\n</ion-content>\n"
 
 /***/ }),
 
@@ -102,8 +102,8 @@ var Co2DailyPage = /** @class */ (function () {
             data: {
                 labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                 datasets: [{
-                        label: '# Daily Electricity',
-                        data: [100, 50, 75, 30, 15, 20, 35],
+                        label: '# Daily Carbon Levels',
+                        data: [20, 30, 25, 60, 5, 40, 95],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(255, 99, 132, 0.2)',

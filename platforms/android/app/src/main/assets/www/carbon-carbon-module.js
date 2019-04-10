@@ -58,7 +58,7 @@ var CarbonPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>carbon</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n  <button ion-button href=\"co2-daily\" >Carbon Daily </button>\n  <button ion-button href=\"co2-weekly\" full>Carbon Weekly</button>\n  <button ion-button href=\"co2-monthly\" full>Carbon Monthly</button>\n\n</ion-content>\n\n\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>List of Carbon Level Charts</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n<p>\n    <button ion-button large block [routerLink]=\"[ '/co2-daily']\">Carbon Daily </button>\n</p>\n<p>\n    <button ion-button large block [routerLink]=\"[ '/co2-weekly']\" full>Carbon Weekly</button>\n</p>\n<p>\n    <button ion-button large block [routerLink]=\"[ '/co2-monthly']\" full>Carbon Monthly</button>\n</p>\n\n\n</ion-content>\n\n\n"
 
 /***/ }),
 

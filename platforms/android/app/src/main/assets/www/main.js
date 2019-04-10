@@ -845,39 +845,45 @@ var map = {
 		"./src/app/carbon/carbon.module.ts",
 		"carbon-carbon-module"
 	],
+	"./chart3d/chart3d.module": [
+		"./src/app/chart3d/chart3d.module.ts",
+		"default~chart3d-chart3d-module~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-~6c914704",
+		"common",
+		"chart3d-chart3d-module"
+	],
 	"./co2-daily/co2-daily.module": [
 		"./src/app/co2-daily/co2-daily.module.ts",
-		"default~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-co2-weekly-module~e-dai~0026ed63",
+		"default~chart3d-chart3d-module~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-~6c914704",
 		"common",
 		"co2-daily-co2-daily-module"
 	],
 	"./co2-monthly/co2-monthly.module": [
 		"./src/app/co2-monthly/co2-monthly.module.ts",
-		"default~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-co2-weekly-module~e-dai~0026ed63",
+		"default~chart3d-chart3d-module~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-~6c914704",
 		"common",
 		"co2-monthly-co2-monthly-module"
 	],
 	"./co2-weekly/co2-weekly.module": [
 		"./src/app/co2-weekly/co2-weekly.module.ts",
-		"default~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-co2-weekly-module~e-dai~0026ed63",
+		"default~chart3d-chart3d-module~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-~6c914704",
 		"common",
 		"co2-weekly-co2-weekly-module"
 	],
 	"./e-daily/e-daily.module": [
 		"./src/app/e-daily/e-daily.module.ts",
-		"default~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-co2-weekly-module~e-dai~0026ed63",
+		"default~chart3d-chart3d-module~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-~6c914704",
 		"common",
 		"e-daily-e-daily-module"
 	],
 	"./e-monthly/e-monthly.module": [
 		"./src/app/e-monthly/e-monthly.module.ts",
-		"default~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-co2-weekly-module~e-dai~0026ed63",
+		"default~chart3d-chart3d-module~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-~6c914704",
 		"common",
 		"e-monthly-e-monthly-module"
 	],
 	"./e-weekly/e-weekly.module": [
 		"./src/app/e-weekly/e-weekly.module.ts",
-		"default~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-co2-weekly-module~e-dai~0026ed63",
+		"default~chart3d-chart3d-module~co2-daily-co2-daily-module~co2-monthly-co2-monthly-module~co2-weekly-~6c914704",
 		"common",
 		"e-weekly-e-weekly-module"
 	],
@@ -965,27 +971,27 @@ var routes = [
     },
     {
         path: 'co2-daily',
-        loadChildren: './co2-daily/co2-daily.module#Co2DailyPageModule'
+        loadChildren: './co2-daily/co2-daily.module#Co2DailyPageModule',
     },
     {
         path: 'co2-weekly',
-        loadChildren: './co2-weekly/co2-weekly.module#Co2WeeklyPageModule'
+        loadChildren: './co2-weekly/co2-weekly.module#Co2WeeklyPageModule',
     },
     {
         path: 'co2-monthly',
-        loadChildren: './co2-monthly/co2-monthly.module#Co2MonthlyPageModule'
+        loadChildren: './co2-monthly/co2-monthly.module#Co2MonthlyPageModule',
     },
     {
         path: 'e-daily',
-        loadChildren: './e-daily/e-daily.module#EDailyPageModule'
+        loadChildren: './e-daily/e-daily.module#EDailyPageModule',
     },
     {
         path: 'e-weekly',
-        loadChildren: './e-weekly/e-weekly.module#EWeeklyPageModule'
+        loadChildren: './e-weekly/e-weekly.module#EWeeklyPageModule',
     },
     {
         path: 'e-monthly',
-        loadChildren: './e-monthly/e-monthly.module#EMonthlyPageModule'
+        loadChildren: './e-monthly/e-monthly.module#EMonthlyPageModule',
     },
     {
         path: 'electricity',
@@ -998,6 +1004,14 @@ var routes = [
     {
         path: 'signup',
         loadChildren: './signup/signup.module#SignupPageModule'
+    },
+    {
+        path: 'e-monthly',
+        loadChildren: './e-monthly/e-monthly.module#EMonthlyPageModule',
+    },
+    {
+        path: 'chart3d',
+        loadChildren: './chart3d/chart3d.module#Chart3dPageModule',
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -1074,6 +1088,11 @@ var AppComponent = /** @class */ (function () {
                 title: 'Electricity',
                 url: '/electricity',
                 icon: 'outlet'
+            },
+            {
+                title: '3D Chart',
+                url: '/chart3d',
+                icon: 'pie'
             },
             {
                 title: 'Login Page',

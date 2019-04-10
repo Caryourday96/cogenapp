@@ -58,7 +58,7 @@ var EMonthlyPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Electric Monthly</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <canvas #barCanvas></canvas>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Electric Monthly</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <canvas #barCanvas></canvas>\n  <ion-card>\n      <ion-card-header>\n      <p><ion-card-subtitle>Min Value -  1.2 </ion-card-subtitle></p>\n      <p><ion-card-subtitle>Max Value -  9.6 </ion-card-subtitle></p>\n      <p><ion-card-subtitle>Average Value - 6.65  </ion-card-subtitle></p>\n    </ion-card-header>\n      </ion-card>\n</ion-content>\n"
 
 /***/ }),
 
@@ -98,29 +98,29 @@ var EMonthlyPage = /** @class */ (function () {
     }
     EMonthlyPage.prototype.ngOnInit = function () {
         this.barChart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](this.barCanvas.nativeElement, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                labels: ["November", "December", "January", "February", "March", "April"],
                 datasets: [{
-                        label: '# Daily Electricity',
-                        data: [100, 50, 75, 30, 15, 20, 35],
+                        label: '# Monthly Electricity Levels',
+                        data: [7.5, 9.6, 3.3, 5.0, 7.8, 5.5, 1.2],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 99, 132, 0.2)'
+                            'rgb(0,0,255,0.6)',
+                            'rgb(0,0,255,0.6)',
+                            'rgb(0,0,255,0.6)',
+                            'rgb(0,0,255,0.6)',
+                            'rgb(0,0,255,0.6)',
+                            'rgb(0,0,255,0.6)',
+                            'rgb(0,0,255,0.6)'
                         ],
                         borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(255,99,132,1)',
-                            'rgba(255,99,132,1)'
+                            'rgb(0,0,255,0)',
+                            'rgb(0,0,255,0)',
+                            'rgb(0,0,255,0)',
+                            'rgb(0,0,255,0)',
+                            'rgb(0,0,255,0)',
+                            'rgb(0,0,255,0)',
+                            'rgb(0,0,255,0)'
                         ],
                         borderWidth: 1
                     }]
