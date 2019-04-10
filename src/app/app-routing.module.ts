@@ -76,7 +76,7 @@ const routes: Routes = [
 { 
   path: 'chart3d',
   loadChildren: './chart3d/chart3d.module#Chart3dPageModule',
-  //canActivate: [AuthGuard]
+  canActivate: [AuthGuard]
 
 }
 
